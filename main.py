@@ -64,3 +64,9 @@ def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_
         'mse_val': mean_squared_error(y_val_encoded, y_val_pred),
         'mse_test': mean_squared_error(y_test_encoded, y_test_pred),
         'mae_train': mean_absolute_error(y_train_encoded, y_train_pred),
+        'mae_val': mean_absolute_error(y_val_encoded, y_val_pred),
+        'mae_test': mean_absolute_error(y_test_encoded, y_test_pred),
+        'r2_train': r2_score(y_train_encoded, y_train_pred),
+        'r2_val': r2_score(y_val_encoded, y_val_pred),
+        'r2_test': r2_score(y_test_encoded, y_test_pred)
+    }
