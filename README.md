@@ -1,6 +1,4 @@
-Aquí tienes un README divertido y bien estructurado para tu proyecto **RANDOM_FOREST_PYTHON_FLASK**. Agrega algún GIF o imagen si deseas animarlo aún más:
 
----
 
 # 🌲 RANDOM_FOREST_PYTHON_FLASK 🌲
 
