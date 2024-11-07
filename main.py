@@ -10,3 +10,6 @@ from flask import Flask, jsonify, render_template
 import matplotlib.pyplot as plt
 import io
 import base64
+
+# Inicializar la aplicación Flask
+app = Flask(__name__)
