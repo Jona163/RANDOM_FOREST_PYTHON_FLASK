@@ -70,3 +70,5 @@ def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_
         'r2_val': r2_score(y_val_encoded, y_val_pred),
         'r2_test': r2_score(y_test_encoded, y_test_pred)
     }
+
+    return metrics, y_train_pred, y_val_pred, y_test_pred
