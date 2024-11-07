@@ -47,3 +47,8 @@ def load_and_process_data():
     X_test_scaled = scaler.transform(X_test)
 
    return X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded
+
+# Función para entrenar el modelo y obtener las métricas
+def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded):
+    clf_rnd_reg = RandomForestRegressor(n_estimators=10, random_state=42, n_jobs=-1)
+    clf_rnd_reg.fit(X_train_scaled, y_train_encoded)
