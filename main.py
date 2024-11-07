@@ -72,3 +72,13 @@ def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_
     }
 
     return metrics, y_train_pred, y_val_pred, y_test_pred
+
+
+# Función para generar y codificar solo la gráfica de entrenamiento
+def generate_train_plot(y_train_encoded, y_train_pred):
+    plt.figure(figsize=(5, 5))
+    plt.scatter(y_train_encoded, y_train_pred, color='blue', alpha=0.5)
+    plt.plot([y_train_encoded.min(), y_train_encoded.max()], [y_train_encoded.min(), y_train_encoded.max()], color='red', linestyle='--')
+    plt.title("Entrenamiento: Real vs Predicción")
+    plt.xlabel("Real")
+    plt.ylabel("Predicción")
