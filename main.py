@@ -17,3 +17,4 @@ app = Flask(__name__)
 # Función para cargar y procesar el dataset
 def load_and_process_data():
     # Leer el dataset
+    df = pd.read_csv("datasets/TotalFeatures-ISCXFlowMeter.csv")
