@@ -65,3 +65,24 @@
 <body>
     <div calss="container">
         <h1>Resultados del Modelo de Regresión</h1>
+
+        <h2>Métricas</h2>
+        <ul>
+            <li>MSE (Entrenamiento): <span>{{ metrics.mse_train }}</span></li>
+            <li>MSE (Validación): <span>{{ metrics.mse_val }}</span></li>
+            <li>MSE (Test): <span>{{ metrics.mse_test }}</span></li>
+            <li>MAE (Entrenamiento): <span>{{ metrics.mae_train }}</span></li>
+            <li>MAE (Validación): <span>{{ metrics.mae_val }}</span></li>
+            <li>MAE (Test): <span>{{ metrics.mae_test }}</span></li>
+            <li>R2 (Entrenamiento): <span>{{ metrics.r2_train }}</span></li>
+            <li>R2 (Validación): <span>{{ metrics.r2_val }}</span></li>
+            <li>R2 (Test): <span>{{ metrics.r2_test }}</span></li>
+        </ul>
+
+        <h2>Gráficas</h2>
+        <div calss="img-container">
+            <img src="data:image/png;base64,{{ plot }}" alt="Gráficas Real vs Predicción">
+        </div>
+    </div>
+</body>
+</html>
