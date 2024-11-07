@@ -33,3 +33,7 @@ def load_and_process_data():
     X_train, y_train = train_set.drop('calss', axis=1), train_set['calss']
     X_val, y_val = val_set.drop('calss', axis=1), val_set['calss']
     X_test, y_test = test_set.drop('calss', axis=1), test_set['calss']
+
+    # Codificación de las etiquetas
+    label_encoder = LabelEncoder()
+    y_train_encoded = label_encoder.fit_transform(y_train)
