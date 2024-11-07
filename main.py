@@ -18,3 +18,7 @@ app = Flask(__name__)
 def load_and_process_data():
     # Leer el dataset
     df = pd.read_csv("datasets/TotalFeatures-ISCXFlowMeter.csv")
+
+    # Dividir el DataSet en entrenamiento, validación y test
+    def train_val_test_split(df, rstate=42, shuffle=True, stratify=None):
+        strat = df[stratify] if stratify else None
