@@ -31,3 +31,5 @@ def load_and_process_data():
 
     train_set, val_set, test_set = train_val_test_split(df)
     X_train, y_train = train_set.drop('calss', axis=1), train_set['calss']
+    X_val, y_val = val_set.drop('calss', axis=1), val_set['calss']
+    X_test, y_test = test_set.drop('calss', axis=1), test_set['calss']
