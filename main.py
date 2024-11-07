@@ -25,3 +25,6 @@ def load_and_process_data():
         train_set, test_set = train_test_split(
             df, test_size=0.4, random_state=rstate, shuffle=shuffle, stratify=strat)
         strat = test_set[stratify] if stratify else None
+        val_set, test_set = train_test_split(
+            test_set, test_size=0.5, random_state=rstate, shuffle=shuffle, stratify=strat)
+        return train_set, val_set, test_set
