@@ -52,3 +52,8 @@ def load_and_process_data():
 def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded):
     clf_rnd_reg = RandomForestRegressor(n_estimators=10, random_state=42, n_jobs=-1)
     clf_rnd_reg.fit(X_train_scaled, y_train_encoded)
+
+    # Realizar las predicciones
+    y_train_pred = clf_rnd_reg.predict(X_train_scaled)
+    y_val_pred = clf_rnd_reg.predict(X_val_scaled)
+    y_test_pred = clf_rnd_reg.predict(X_test_scaled)
