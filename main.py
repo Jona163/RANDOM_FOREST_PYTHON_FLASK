@@ -39,3 +39,6 @@ def load_and_process_data():
     y_train_encoded = label_encoder.fit_transform(y_train)
     y_val_encoded = label_encoder.transform(y_val)
     y_test_encoded = label_encoder.transform(y_test)
+
+    # Escalado de los datos
+    scaler = RobustScaler()
