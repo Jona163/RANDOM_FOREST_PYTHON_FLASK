@@ -82,3 +82,11 @@ def generate_train_plot(y_train_encoded, y_train_pred):
     plt.title("Entrenamiento: Real vs Predicción")
     plt.xlabel("Real")
     plt.ylabel("Predicción")
+
+    # Guardar la imagen en un buffer
+    img_io = io.BytesIO()
+    plt.savefig(img_io, format='png')
+    img_io.seek(0)
+    
+    # Codificar la imagen en base64
+    img_base64 = base64.b64encode(img_io.getvalue()).decode('utf-8')
