@@ -22,3 +22,6 @@ def load_and_process_data():
     # Dividir el DataSet en entrenamiento, validación y test
     def train_val_test_split(df, rstate=42, shuffle=True, stratify=None):
         strat = df[stratify] if stratify else None
+        train_set, test_set = train_test_split(
+            df, test_size=0.4, random_state=rstate, shuffle=shuffle, stratify=strat)
+        strat = test_set[stratify] if stratify else None
