@@ -1,4 +1,3 @@
-#Importaciones
 import os
 import pandas as pd
 import numpy as np
@@ -46,7 +45,7 @@ def load_and_process_data():
     X_val_scaled = scaler.transform(X_val)
     X_test_scaled = scaler.transform(X_test)
 
-   return X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded
+    return X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded
 
 # Función para entrenar el modelo y obtener las métricas
 def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded):
@@ -73,7 +72,6 @@ def train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_
 
     return metrics, y_train_pred, y_val_pred, y_test_pred
 
-
 # Función para generar y codificar solo la gráfica de entrenamiento
 def generate_train_plot(y_train_encoded, y_train_pred):
     plt.figure(figsize=(5, 5))
@@ -90,3 +88,22 @@ def generate_train_plot(y_train_encoded, y_train_pred):
     
     # Codificar la imagen en base64
     img_base64 = base64.b64encode(img_io.getvalue()).decode('utf-8')
+    
+    return img_base64
+
+@app.route('/')
+def home():
+    # Cargar y procesar los datos
+    X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded = load_and_process_data()
+
+    # Entrenar el modelo y obtener las métricas y predicciones
+    metrics, y_train_pred, y_val_pred, y_test_pred = train_model(X_train_scaled, X_val_scaled, X_test_scaled, y_train_encoded, y_val_encoded, y_test_encoded)
+
+    # Generar la gráfica de entrenamiento
+    plot_base64 = generate_train_plot(y_train_encoded, y_train_pred)
+
+    # Pasar los resultados a la plantilla
+    return render_template('index.html', metrics=metrics, plot=plot_base64)
+
+if __name__ == '__main__':
+    app.run(debug=True)
