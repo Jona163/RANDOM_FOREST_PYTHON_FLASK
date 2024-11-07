@@ -28,3 +28,6 @@ def load_and_process_data():
         val_set, test_set = train_test_split(
             test_set, test_size=0.5, random_state=rstate, shuffle=shuffle, stratify=strat)
         return train_set, val_set, test_set
+
+    train_set, val_set, test_set = train_val_test_split(df)
+    X_train, y_train = train_set.drop('calss', axis=1), train_set['calss']
